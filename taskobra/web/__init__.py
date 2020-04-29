@@ -28,10 +28,8 @@ def create_app():
     app.register_blueprint(ui.blueprint)
 
     # Set Up Database Bindings
-    db.make_declarative_base(ORMBase)
     db.init_app(app)
-    with app.app_context():
-        db.create_all()
+    db.create_all()
 
     return app
 
